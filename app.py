@@ -39,7 +39,7 @@ def allowed_file(filename):
 @app.route("/", methods=['GET', 'POST'])
 def base():
     if request.method == 'GET':
-        return render_template("base.html", output=0)
+        return render_template("first.html", output=0)
     else:
         if 'input_image' not in request.files:
             print("No file part")
@@ -57,7 +57,7 @@ def base():
             output = cv2.imread('h.png')
             _, outputBuffer = cv2.imencode('.jpg', output)
             OutputBase64String = base64.b64encode(outputBuffer).decode('utf-8')
-            return render_template("base.html", img=OutputBase64String, output=1)
+            return render_template("hallo.html", img=OutputBase64String, output=1)
 
 
 if __name__ == "__main__":
