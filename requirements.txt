@@ -1,5 +1,6 @@
-Keras==2.9.0
-tensorflow==2.9.0
+python==3.7
+Keras==2.4.0
+tensorflow==2.2.0
 segmentation-models
 opencv-python==4.5.5.64
 numpy==1.22.4
