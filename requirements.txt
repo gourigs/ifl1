@@ -1,5 +1,5 @@
 Keras==2.3.1
-tensorflow-cpu==2.2
+tensorflow==2.8.0
 segmentation-models
 imgaug-0.2.6
 opencv-python==4.1.0.25
