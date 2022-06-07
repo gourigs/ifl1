@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import base64
 import os
 
-import pro
+import load
 
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
@@ -16,7 +16,7 @@ app = Flask(__name__)
 def decode_an_image_array(rgb, dn=1):
     x = np.expand_dims(rgb.astype('float32') / 255. * 2 - 1, axis=0)[:, ::dn, ::dn]
     K.clear_session()
-    moDeL = pro.load_trained_model()
+    moDeL = load.load_trained_model()
     return  moDeL.predict(x)[0, ..., 0]
 
 
@@ -39,7 +39,7 @@ def allowed_file(filename):
 @app.route("/", methods=['GET', 'POST'])
 def base():
     if request.method == 'GET':
-        return render_template("first.html", output=0)
+        return render_template("base.html", output=0)
     else:
         if 'input_image' not in request.files:
             print("No file part")
@@ -57,7 +57,7 @@ def base():
             output = cv2.imread('h.png')
             _, outputBuffer = cv2.imencode('.jpg', output)
             OutputBase64String = base64.b64encode(outputBuffer).decode('utf-8')
-            return render_template("hallo.html", img=OutputBase64String, output=1)
+            return render_template("base.html", img=OutputBase64String, output=1)
 
 
 if __name__ == "__main__":
