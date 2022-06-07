@@ -1,4 +1,4 @@
-python==3.7
+
 Keras==2.4.0
 tensorflow==2.2.0
 segmentation-models
